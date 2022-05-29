@@ -32,6 +32,11 @@ export default function Index() {
             Blog Posts
           </Link>
         </li>
+        <li>
+          <Link to='/gallery' className='text-xl text-blue-600 underline'>
+            Image Gallery
+          </Link>
+        </li>
       </ul>
     </div>
   );
