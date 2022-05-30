@@ -1,5 +1,5 @@
 import { json } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, Outlet } from "@remix-run/react";
 import { getGalleryImages } from "~/models/galleryImages.server";
 
 type Image = {
@@ -20,21 +20,13 @@ export const loader = async () => {
   });
 };
 
-export default function Gallery() {
-  const { galleryImages } = useLoaderData() as LoaderData;
+export default function GalleryPost() {
   return (
     <main>
-      <h1>Image Gallery</h1>
-      <Link to='admin' className='text-red-600 underline'>
-        Admin
-      </Link>
-      <ul>
-        {galleryImages?.map(({ id, url }) => (
-          <li key={id}>
-            <Link to={id}>{url}</Link>
-          </li>
-        ))}
-      </ul>
+      <h1>Admin</h1>
+      <div>
+        <Outlet />
+      </div>
     </main>
   );
 }
